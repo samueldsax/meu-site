@@ -1,0 +1,42 @@
+/* src/components/ItemStyles.css */
+.item-card {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+[data-theme='dark'] .item-card {
+  background-color: var(--dark-secondary-color);
+}
+
+.item-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.item-title {
+  color: var(--primary-color);
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.remove-item-button {
+  padding: 8px 15px;
+  font-size: 0.85em;
+}
+
+/* Specific styling for input fields within item cards */
+.item-card .input-field-group {
+  margin-bottom: 15px;
+}

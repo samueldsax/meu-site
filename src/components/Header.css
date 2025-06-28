@@ -1,0 +1,53 @@
+/* src/components/Header.css */
+.header {
+  background-color: var(--card-bg-color);
+  padding: 20px 0;
+  box-shadow: var(--box-shadow);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 1.8em;
+  color: var(--primary-color);
+  margin: 0;
+  font-weight: 700;
+}
+
+.theme-toggle-button {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  padding: 8px 15px;
+  border-radius: var(--border-radius);
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+  background-color: var(--border-color);
+}
+
+[data-theme='dark'] .theme-toggle-button {
+  background-color: var(--dark-border-color);
+  color: var(--dark-text-color);
+}
+
+[data-theme='dark'] .theme-toggle-button:hover {
+  background-color: var(--dark-primary-color);
+}
+
+@media (max-width: 600px) {
+  .header .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

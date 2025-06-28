@@ -1,0 +1,94 @@
+/* src/styles/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #4A90E2;
+  --secondary-color: #F8F8F8;
+  --text-color: #333;
+  --text-color-light: #666;
+  --background-color: #FFFFFF;
+  --border-color: #E0E0E0;
+  --error-color: #E74C3C;
+  --success-color: #2ECC71;
+  --heading-color: #2C3E50;
+  --input-bg-color: #FFFFFF;
+  --card-bg-color: #FFFFFF;
+
+  --font-family: 'Inter', sans-serif;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  /* Dark Mode Variables */
+  --dark-primary-color: #6CACE4;
+  --dark-secondary-color: #2C3E50;
+  --dark-text-color: #ECF0F1;
+  --dark-text-color-light: #BDC3C7;
+  --dark-background-color: #222B3A;
+  --dark-border-color: #4A5869;
+  --dark-heading-color: #ECF0F1;
+  --dark-input-bg-color: #2C3E50;
+  --dark-card-bg-color: #2C3E50;
+}
+
+[data-theme='dark'] {
+  --primary-color: var(--dark-primary-color);
+  --secondary-color: var(--dark-secondary-color);
+  --text-color: var(--dark-text-color);
+  --text-color-light: var(--dark-text-color-light);
+  --background-color: var(--dark-background-color);
+  --border-color: var(--dark-border-color);
+  --heading-color: var(--dark-heading-color);
+  --input-bg-color: var(--dark-input-bg-color);
+  --card-bg-color: var(--dark-card-bg-color);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+input, textarea, button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 12px 24px;
+  transition: background-color 0.3s ease;
+}

@@ -1,0 +1,222 @@
+/* src/components/CvPreview.css */
+
+/* VARIÁVEIS DE TEMA GLOBAIS (APLICAM-SE AO SITE, NÃO AO PDF) */
+:root {
+  --primary-color: #4A90E2; /* Azul vibrante */
+  --secondary-color: #50E3C2; /* Verde água */
+  --text-color: #333333; /* Texto escuro padrão */
+  --text-color-light: #666666; /* Texto cinza claro */
+  --background-color: #F4F7F6; /* Fundo claro da página */
+  --card-bg-color: #FFFFFF; /* Fundo dos cards claros */
+  --border-color: #E0E0E0; /* Cor da borda clara */
+  --input-bg-color: #F9F9F9; /* Fundo do input claro */
+  --input-border-color: #DCDCDC; /* Borda do input claro */
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra suave */
+  --heading-color: #2C3E50; /* Cor dos títulos */
+  --error-color: #D0021B; /* Cor de erro */
+}
+
+[data-theme='dark'] {
+  --primary-color: #50E3C2; /* Verde água para primária no escuro */
+  --secondary-color: #4A90E2; /* Azul para secundária no escuro */
+  --text-color: #E0E0E0; /* Texto claro no escuro */
+  --text-color-light: #B0B0B0; /* Texto cinza claro no escuro */
+  --background-color: #1A1A1A; /* Fundo escuro da página */
+  --card-bg-color: #2C2C2C; /* Fundo dos cards escuros */
+  --border-color: #444444; /* Cor da borda escura */
+  --input-bg-color: #383838; /* Fundo do input escuro */
+  --input-border-color: #555555; /* Borda do input escuro */
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra mais escura */
+  --heading-color: #F8F8F8; /* Cor dos títulos no escuro */
+  --error-color: #FF6B6B; /* Cor de erro no escuro */
+}
+
+
+/* ESTILOS GERAIS DA PRÉ-VISUALIZAÇÃO DO CURRÍCULO NO SITE */
+/* Estes estilos são dinâmicos e mudam com o tema (claro/escuro) */
+.cv-preview {
+  background-color: var(--card-bg-color);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  max-width: 800px;
+  margin: 20px auto;
+  line-height: 1.6;
+  color: var(--text-color); /* Segue a cor do texto do tema */
+  font-size: 0.95em;
+}
+
+.cv-preview h1,
+.cv-preview h2,
+.cv-preview h3,
+.cv-preview h4,
+.cv-preview h5,
+.cv-preview h6 {
+  color: var(--heading-color); /* Segue a cor dos títulos do tema */
+}
+
+.cv-preview .cv-full-name {
+  color: var(--primary-color); /* Nome completo segue a cor primária do tema */
+}
+
+.cv-preview .cv-profession,
+.cv-preview .cv-contact-info p {
+  color: var(--text-color-light); /* Profissão e contato seguem a cor de texto claro do tema */
+}
+
+.cv-preview .cv-section-title {
+  color: var(--heading-color);
+  border-bottom: 1px solid var(--border-color); /* Borda segue a cor do tema */
+}
+
+.cv-preview .cv-experience-item,
+.cv-preview .cv-education-item,
+.cv-preview .cv-skill-item { /* Adicionado .cv-skill-item aqui */
+  border-left: 3px solid var(--primary-color); /* Borda lateral segue a cor primária do tema */
+}
+
+.cv-preview .cv-experience-title,
+.cv-preview .cv-education-title {
+  color: var(--primary-color); /* Títulos de experiência/formação seguem a cor primária do tema */
+}
+
+.cv-preview .cv-period,
+.cv-preview .cv-institution {
+  color: var(--text-color-light); /* Período/Instituição seguem a cor de texto claro do tema */
+}
+
+.cv-preview .cv-description,
+.cv-preview .cv-summary-text {
+  color: var(--text-color); /* Descrição e resumo seguem a cor do texto do tema */
+}
+
+.cv-preview .cv-links-list li a {
+  color: var(--primary-color); /* Links seguem a cor primária do tema */
+}
+
+
+/* ESTILOS ESPECÍFICOS PARA O PDF / IMPRESSÃO */
+/* Estes estilos SÓ aplicam quando o html2pdf.js está renderizando
+   e forçam um visual CLARO, PRETO E BRANCO para o PDF */
+/* O seletor `#cv-preview-content` é mais específico do que `.cv-preview` sozinho,
+   e a declaração `!important` garante que estas regras sobrescrevam qualquer outra. */
+#cv-preview-content {
+  background-color: #FFFFFF !important; /* Fundo branco FORÇADO */
+  color: #000000 !important; /* Texto preto FORÇADO */
+  box-shadow: none !important; /* Remove sombra no PDF */
+}
+
+#cv-preview-content * { /* Aplica para TODOS os elementos dentro do preview no PDF */
+  color: #000000 !important; /* FORÇA todo texto a ser preto */
+  background-color: transparent !important; /* Garante que nenhum fundo inesperado apareça */
+}
+
+/* Exceções ou ajustes finos para o PDF */
+#cv-preview-content .cv-full-name,
+#cv-preview-content .cv-profession,
+#cv-preview-content .cv-section-title,
+#cv-preview-content .cv-experience-title,
+#cv-preview-content .cv-education-title {
+    /* Já estarão pretos devido ao `*`, mas aqui garantimos font-weight se necessário */
+    font-weight: bold !important; /* Garante negrito para títulos importantes */
+}
+
+#cv-preview-content .cv-links-list li a {
+    text-decoration: underline !important; /* Links sublinhados no PDF */
+}
+
+#cv-preview-content .cv-header-section {
+    border-bottom-color: #E0E0E0 !important; /* Borda do cabeçalho clara no PDF */
+}
+
+#cv-preview-content .cv-section-title {
+    border-bottom-color: #E0E0E0 !important; /* Borda da seção clara no PDF */
+}
+
+#cv-preview-content .cv-experience-item,
+#cv-preview-content .cv-education-item,
+#cv-preview-content .cv-skill-item { /* Adicionado .cv-skill-item aqui */
+    border-left-color: #E0E0E0 !important; /* Borda lateral clara no PDF */
+}
+
+
+/* REGRAS PARA LAYOUT E ESPAÇAMENTO (compartilhadas ou ajustadas para otimização) */
+.cv-header-section {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+}
+
+.cv-full-name {
+  font-size: 2.2em;
+  margin-bottom: 3px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.cv-profession {
+  font-size: 1.3em;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.cv-contact-info p {
+  margin: 3px 0;
+  font-size: 0.95em;
+}
+
+.cv-section {
+  margin-bottom: 25px;
+}
+
+.cv-section-title {
+  font-size: 1.6em;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  font-weight: 600;
+}
+
+.cv-summary-text {
+  font-size: 0.95em;
+}
+
+.cv-experience-item,
+.cv-education-item,
+.cv-skill-item { /* Adicionado .cv-skill-item aqui */
+  margin-bottom: 15px;
+  padding-left: 8px;
+}
+
+.cv-label-text {
+  font-weight: 600;
+  margin-bottom: 0px;
+  text-align: left;
+  line-height: 1.1;
+  font-size: 0.9em;
+}
+
+.cv-value-text {
+  margin-bottom: 8px;
+  text-align: left;
+  line-height: 1.3;
+  font-size: 0.9em;
+}
+
+.cv-links-list {
+  list-style: none;
+  padding: 0;
+}
+
+.cv-links-list li {
+  margin-bottom: 10px;
+}
+
+.cv-links-list li a {
+  font-size: 0.9em;
+}
+
+.cv-links-list li a:hover {
+  color: var(--primary-color); /* Mantém o hover para a prévia do site */
+  text-decoration: underline;
+}
+

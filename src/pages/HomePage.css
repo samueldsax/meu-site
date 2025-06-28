@@ -1,0 +1,65 @@
+/* src/pages/HomePage.css */
+.homepage {
+  flex-grow: 1; /* Allows it to take available space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.homepage-content {
+  max-width: 700px;
+  background-color: var(--card-bg-color);
+  padding: 50px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.homepage-title {
+  font-size: 2.8em;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.homepage-subtitle {
+  font-size: 1.3em;
+  color: var(--text-color-light);
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+.start-button {
+  padding: 15px 35px;
+  font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+  .homepage-title {
+    font-size: 2em;
+  }
+  .homepage-subtitle {
+    font-size: 1em;
+  }
+  .homepage-content {
+    padding: 30px;
+  }
+  .start-button {
+    padding: 12px 25px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage-title {
+    font-size: 1.8em;
+  }
+  .homepage-subtitle {
+    font-size: 0.9em;
+  }
+  .homepage-content {
+    padding: 20px;
+  }
+}

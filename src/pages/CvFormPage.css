@@ -1,0 +1,75 @@
+/* src/pages/CvFormPage.css */
+.cv-form-page {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  justify-content: center;
+  gap: 30px;
+  padding: 30px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.form-container {
+  flex: 2; /* Takes more space than preview on larger screens */
+  min-width: 450px; /* Minimum width for form */
+}
+
+.preview-container {
+  flex: 1; /* Takes less space */
+  min-width: 350px; /* Minimum width for preview */
+}
+
+.form-page-title {
+  color: var(--heading-color);
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.generate-pdf-button {
+  padding: 15px 30px;
+  font-size: 1.1em;
+}
+
+.form-section-error {
+  margin-top: -10px; /* Adjust spacing if there's an error for the section */
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .cv-form-page {
+    flex-direction: column; /* Stack form and preview vertically */
+    align-items: center; /* Center items when stacked */
+  }
+
+  .form-container,
+  .preview-container {
+    width: 100%; /* Take full width when stacked */
+    max-width: 800px; /* Max width for readability */
+    min-width: unset; /* Remove min-width to allow shrinking */
+  }
+
+  .form-page-title {
+    font-size: 1.8em;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-container,
+  .preview-container {
+    padding: 15px; /* Smaller padding on very small screens */
+  }
+  .form-page-title {
+    font-size: 1.5em;
+  }
+}
