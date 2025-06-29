@@ -95,11 +95,6 @@
 }
 
 
-/* ESTILOS ESPECÍFICOS PARA O PDF / IMPRESSÃO */
-/* Estes estilos SÓ aplicam quando o html2pdf.js está renderizando
-   e forçam um visual CLARO, PRETO E BRANCO para o PDF */
-/* O seletor `#cv-preview-content` é mais específico do que `.cv-preview` sozinho,
-   e a declaração `!important` garante que estas regras sobrescrevam qualquer outra. */
 #cv-preview-content {
   background-color: #FFFFFF !important; /* Fundo branco FORÇADO */
   color: #000000 !important; /* Texto preto FORÇADO */
